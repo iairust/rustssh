@@ -10,6 +10,7 @@ frontend/dist/
 # Tauri build outputs
 src-tauri/target/
 src-tauri/gen/
+target/
 
 # Local env files
 .env
