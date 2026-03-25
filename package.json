@@ -1,0 +1,17 @@
+{
+  "name": "rustssh-manager",
+  "version": "1.0.0",
+  "description": "Rust-based SSH Manager like XShell",
+  "type": "module",
+  "scripts": {
+    "dev": "start \"Backend\" cmd /k \"cd backend && node server.js\" && start \"Frontend\" cmd /k \"cd frontend && npm run dev\"",
+    "dev:backend": "cd backend && node server.js",
+    "dev:frontend": "cd frontend && npm run dev",
+    "install:all": "cd backend && npm install && cd ../frontend && npm install",
+    "tauri:dev": "cargo tauri dev",
+    "tauri:build": "cargo tauri build"
+  },
+  "dependencies": {
+    "@tauri-apps/cli": "^2.10.1"
+  }
+}

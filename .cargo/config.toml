@@ -1,0 +1,15 @@
+[http]
+check-revoke = false
+
+[net]
+retry = 2
+git-fetch-with-cli = true
+
+[source.crates-io]
+replace-with = 'ustc'
+
+[source.ustc]
+registry = "sparse+https://mirrors.ustc.edu.cn/crates.io-index/"
+
+[env]
+CARGO_HTTP_MULTIPLEXING = "false"

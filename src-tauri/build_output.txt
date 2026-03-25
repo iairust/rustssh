@@ -1,0 +1,17 @@
+warning: profiles for the non root package will be ignored, specify profiles at the workspace root:
+package:   e:\AiCode\Codeup\xshell.ngo100.com\src-tauri\Cargo.toml
+workspace: e:\AiCode\Codeup\xshell.ngo100.com\Cargo.toml
+    Updating crates.io index
+warning: spurious network error (3 tries remaining): [7] Could not connect to server (Failed to connect to 127.0.0.1 port 7897 after 2023 ms: Could not connect to server)
+warning: spurious network error (2 tries remaining): [7] Could not connect to server (Failed to connect to 127.0.0.1 port 7897 after 2042 ms: Could not connect to server)
+warning: spurious network error (1 try remaining): [7] Could not connect to server (Failed to connect to 127.0.0.1 port 7897 after 2037 ms: Could not connect to server)
+error: failed to get `anyhow` as a dependency of package `xshell-tauri v1.0.0 (E:\AiCode\Codeup\xshell.ngo100.com\src-tauri)`
+
+Caused by:
+  download of config.json failed
+
+Caused by:
+  failed to download from `https://index.crates.io/config.json`
+
+Caused by:
+  [7] Could not connect to server (Failed to connect to 127.0.0.1 port 7897 after 2030 ms: Could not connect to server)

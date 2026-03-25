@@ -1,0 +1,14 @@
+[
+  {
+    "id": "2d47fdbc-a0d0-497a-acba-07d90974acbf",
+    "name": "39.96.160.205",
+    "host": "39.96.160.205",
+    "port": 22,
+    "username": "root",
+    "password": "huahua333...",
+    "privateKey": "",
+    "authType": "password",
+    "group": "default",
+    "createdAt": "2026-03-22T17:33:41.446528900+00:00"
+  }
+]
