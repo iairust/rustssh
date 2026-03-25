@@ -143,7 +143,7 @@ export default function App() {
       <header className="app-header">
         <div className="logo">
           <TermIcon size={20} />
-          <span>Web<b style={{ color: '#4a6cf7' }}>SSH</b></span>
+          <span>Rust<b style={{ color: '#4a6cf7' }}>SSH</b></span>
         </div>
         <div className="header-actions">
           <button className="btn btn-secondary btn-sm" onClick={() => setImportDialogOpen(true)} title="导入 Xshell 会话">
