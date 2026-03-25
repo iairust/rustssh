@@ -458,7 +458,7 @@ pub fn batch_import_connections(
     use std::collections::HashSet;
 
     // 获取现有连接，检查重复的 IP:端口
-    let existing_connections = connection::get_connections().unwrap_or_default();
+    let existing_connections = connection::get_all_connections().unwrap_or_default();
     let existing_keys: HashSet<String> = existing_connections
         .iter()
         .map(|c| format!("{}:{}", c.host, c.port))
