@@ -8,6 +8,7 @@
   <b>A modern, lightweight SSH client built with Rust and Tauri</b><br>
   <b>基于 Rust 和 Tauri 构建的现代化轻量级 SSH 客户端</b>
 </p>
+<img src="./home.png" width="200" alt="RustSSH Logo">
 
 <p align="center">
   <a href="#features">Features</a> •
@@ -82,6 +83,7 @@ Download the latest release for your platform from the [Releases](https://github
 2. Select your Xshell export file (.xts, .xsh, or .csv)
 3. Preview the connections to import
 4. Click "Import" to confirm
+<img src="./home-xshell-in.png" width="200" alt="RustSSH Logo">
 
 **Note**: Passwords are not imported (Xshell uses encryption). You'll need to set passwords manually after import.
 
