@@ -197,9 +197,9 @@ pub fn test_connection(conn: ConnectionForTest) -> Result<TestResult, String> {
                 });
             }
             
-            // 写入临时文件
+            // 写入临时文件（加 .pem 扩展名确保兼容性）
             let temp_dir = std::env::temp_dir();
-            let key_path = temp_dir.join(format!("ssh_key_{}", uuid::Uuid::new_v4()));
+            let key_path = temp_dir.join(format!("ssh_key_{}.pem", uuid::Uuid::new_v4()));
             std::fs::write(&key_path, key).map_err(|e| e.to_string())?;
             
             let result = session.userauth_pubkey_file(

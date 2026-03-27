@@ -35,9 +35,9 @@ pub struct ConnectionForTest {
     pub host: String,
     pub port: u16,
     pub username: String,
-    #[serde(skip_serializing_if = "Option::is_none")]
+    #[serde(default)]
     pub password: Option<String>,
-    #[serde(skip_serializing_if = "Option::is_none")]
+    #[serde(default)]
     pub private_key: Option<String>,
     #[serde(default = "default_auth_type")]
     pub auth_type: AuthType,
@@ -52,9 +52,9 @@ pub struct ConnectionForCreate {
     pub host: String,
     pub port: u16,
     pub username: String,
-    #[serde(skip_serializing_if = "Option::is_none")]
+    #[serde(default)]
     pub password: Option<String>,
-    #[serde(skip_serializing_if = "Option::is_none")]
+    #[serde(default)]
     pub private_key: Option<String>,
     #[serde(default = "default_auth_type")]
     pub auth_type: AuthType,
@@ -69,9 +69,9 @@ pub struct ConnectionForUpdate {
     pub host: String,
     pub port: u16,
     pub username: String,
-    #[serde(skip_serializing_if = "Option::is_none")]
+    #[serde(default)]
     pub password: Option<String>,
-    #[serde(skip_serializing_if = "Option::is_none")]
+    #[serde(default)]
     pub private_key: Option<String>,
     #[serde(default = "default_auth_type")]
     pub auth_type: AuthType,

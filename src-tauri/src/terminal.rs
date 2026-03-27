@@ -105,9 +105,9 @@ fn spawn_ssh_thread(
                     return;
                 }
                 
-                // 写入临时文件
+                // 写入临时文件（加 .pem 扩展名确保兼容性）
                 let temp_dir = std::env::temp_dir();
-                let key_path = temp_dir.join(format!("ssh_key_{}", uuid::Uuid::new_v4()));
+                let key_path = temp_dir.join(format!("ssh_key_{}.pem", uuid::Uuid::new_v4()));
                 if let Err(e) = std::fs::write(&key_path, key) {
                     let _ = app.emit("terminal-event", serde_json::json!({
                         "termId": term_id,
