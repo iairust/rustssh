@@ -1,6 +1,8 @@
 import { useState, useEffect } from 'react';
-import { X } from 'lucide-react';
+import { X, FolderOpen } from 'lucide-react';
 import { testConnection } from './api-tauri';
+import { open as openDialog } from '@tauri-apps/plugin-dialog';
+import { invoke } from '@tauri-apps/api/core';
 
 const DEFAULT_FORM = {
   name: '',
@@ -49,6 +51,25 @@ export default function ConnectionModal({ open, onClose, onSave, initialData }) 
       setTestResult({ success: false, error: e.message || String(e) });
     } finally {
       setTesting(false);
+    }
+  };
+
+  const handleBrowsePem = async () => {
+    try {
+      const selected = await openDialog({
+        multiple: false,
+        filters: [
+          { name: '私钥文件', extensions: ['pem', 'key', 'rsa', 'ppk', 'openssh'] },
+          { name: '所有文件', extensions: ['*'] },
+        ],
+      });
+      if (selected) {
+        // 通过 Rust 后端读取文件内容
+        const content = await invoke('read_text_file', { path: selected });
+        set('privateKey', content);
+      }
+    } catch (e) {
+      console.error('选择文件失败:', e);
     }
   };
 
@@ -155,12 +176,24 @@ export default function ConnectionModal({ open, onClose, onSave, initialData }) 
             </div>
           ) : (
             <div className="form-group">
-              <label>私钥内容（粘贴 PEM 格式）</label>
+              <label style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
+                <span>私钥内容（PEM 格式）</span>
+                <button
+                  type="button"
+                  className="btn btn-ghost"
+                  style={{ padding: '2px 8px', fontSize: '12px', display: 'flex', alignItems: 'center', gap: '4px' }}
+                  onClick={handleBrowsePem}
+                  title="从文件选择私钥"
+                >
+                  <FolderOpen size={13} />
+                  选择文件
+                </button>
+              </label>
               <textarea
                 className="form-control"
                 value={form.privateKey}
                 onChange={e => set('privateKey', e.target.value)}
-                placeholder="-----BEGIN RSA PRIVATE KEY-----&#10;...&#10;-----END RSA PRIVATE KEY-----"
+                placeholder="-----BEGIN RSA PRIVATE KEY-----&#10;...&#10;-----END RSA PRIVATE KEY-----&#10;&#10;也可点击右上角「选择文件」直接加载 .pem / .key 文件"
                 rows={5}
               />
             </div>

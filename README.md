@@ -1,14 +1,17 @@
 # RustSSH Manager
 
 <p align="center">
-  <img src="icons/icon.png" width="128" height="128" alt="RustSSH Manager Logo">
+  <img src="logo.jpg" width="200" alt="RustSSH Manager Logo">
 </p>
 
 <p align="center">
   <b>A modern, lightweight SSH client built with Rust and Tauri</b><br>
   <b>基于 Rust 和 Tauri 构建的现代化轻量级 SSH 客户端</b>
 </p>
-<img src="./home.png"   alt="RustSSH Logo">
+
+<p align="center">
+  <img src="./home.png" alt="RustSSH Manager Screenshot" width="800">
+</p>
 
 <p align="center">
   <a href="#features">Features</a> •
